@@ -16,7 +16,8 @@ options {
 };
 ```
 
-### Fichier named.conf.local
+### Fichier named.conf.local
+
 Le fichier named.conf.local contient la configuration spécifique aux zones, indiquant le type de zone et le chemin du fichier de zone pour le domaine example.com.
 
 ```
@@ -26,7 +27,8 @@ zone "example.com" IN {
 };
 ```
 
-### Fichier de zone example-com.zone
+### Fichier de zone example-com.zone
+
 Le fichier de zone pour le domaine example.com (/etc/bind/example-com.zone) contient les enregistrements de ressources nécessaires, tels que les enregistrements SOA, NS, A, SRV et TXT pour les différents sous-domaines. Les enregistrements DNS pour un Replica Set consistent principalement en des enregistrements de type SRV et TXT. Voici comment vous pouvez les ajouter :
 
 ```
@@ -63,6 +65,7 @@ Dans cet exemple :
 * Les enregistrements TXT sont utilisés pour stocker des informations supplémentaires, comme le nom du Replica Set.
 
 ### Configuration Docker avec docker-compose.yml
+
 Utilisez le fichier docker-compose.yml fourni pour déployer le conteneur BIND9 avec Docker. Assurez-vous d'adapter les volumes et d'autres paramètres en fonction de vos besoins spécifiques.
 ```
 services:
@@ -91,7 +94,7 @@ networks:
           gateway: 10.5.0.5
 ```
 
-### Comment utiliser ce référentiel
+### Comment utiliser ce référentiel
 
 1. Clonez ce référentiel vers votre machine hôte.
 ```
@@ -104,7 +107,7 @@ git clone https://github.com/votre-utilisateur/bind-example-config.git
 docker-compose up -d
 ```
 
-### Exemple de comment vous pourriez tester la résolution DNS avec nslookup :
+### Exemple de comment vous pourriez tester la résolution DNS avec nslookup :
 
 1. Assurez-vous que votre serveur DNS BIND9 est en cours d'exécution dans le conteneur Docker avec l'adresse IP 10.5.0.5.
 2. Utilisez la commande nslookup sur votre machine locale pour interroger ce serveur DNS. Supposons que vous souhaitiez interroger l'enregistrement A pour le domaine server.example.com. Assurez-vous d'ajuster ces informations en fonction de votre configuration.
