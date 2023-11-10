@@ -1,5 +1,5 @@
 
-# Configuration de BIND pour example.com avec Docker
+# Configuration de BIND pour `example.com` avec Docker
 
 Ce référentiel contient la configuration de BIND (Berkeley Internet Name Domain) pour le domaine example.com. La configuration est divisée en deux fichiers principaux :
 
