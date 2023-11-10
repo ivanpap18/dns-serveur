@@ -1,0 +1,27 @@
+$TTL 2d ; default TTL for zone
+
+$ORIGIN example.com.
+
+@               IN      SOA     ns.example.com. info.example.com. (
+                                20231109    ; serial
+                                12h         ; refresh
+                                15m         ; retry
+                                3w          ; expire
+                                2h          ; minimum ttl
+                                )
+
+                IN      NS      ns.example.com.
+
+ns              IN      A       10.5.0.5
+
+mongodb1        IN      A       10.5.0.6
+mongodb2        IN      A       10.5.0.7
+mongodb3        IN      A       10.5.0.8
+srv-test        IN      A       10.5.0.9
+
+_mongodb._tcp.server.example.com.       IN      SRV     0 5 27017 mongodb1.example.com.
+_mongodb._tcp.server.example.com.       IN      SRV     0 5 27017 mongodb2.example.com.
+_mongodb._tcp.server.example.com.       IN      SRV     0 5 27017 mongodb3.example.com.
+
+
+server.example.com.     IN      TXT     "replicaSet=dbrs"
